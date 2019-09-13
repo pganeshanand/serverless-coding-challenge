@@ -1,0 +1,16 @@
+service: serverless-coding-challenge
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: ap-southeast-2
+
+functions:
+  verifyUser:
+    handler: verify.handler
+    events:
+      - http:
+          path: users/verify
+          method: get
+          cors: true
