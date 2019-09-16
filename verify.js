@@ -1,9 +1,10 @@
 "use strict";
 const AWS = require("aws-sdk");
-const dynamo = new AWS.DynamoDB.DocumentClient();
 
+const dynamo = new AWS.DynamoDB.DocumentClient();
 const cognito = new AWS.CognitoIdentityServiceProvider();
 
+// Function to fetch userInfo from Cognito based on userId
 async function getUserInfo(userId) {
   const user = await cognito
     .adminGetUser({
@@ -16,6 +17,7 @@ async function getUserInfo(userId) {
   return user.UserAttributes;
 }
 
+// Function to save the userDetails with userId in DynamoDB
 async function saveToDynamoDB(userId, userDetails) {
   var params = {
     TableName: process.env.userInfoTable,
@@ -32,6 +34,7 @@ async function saveToDynamoDB(userId, userDetails) {
     .promise();
 }
 
+// Function to initate the Lambda
 module.exports.handler = async event => {
   console.log(process.env.userPool);
   var userId = event.queryStringParameters.userId;
@@ -43,10 +46,8 @@ module.exports.handler = async event => {
       statusCode: 200,
       body: JSON.stringify(
         {
-          // body: {
           message: `User ${userId} is verfied in Cognito and User Info is saved in Dynamo DB !`,
           UserDetails: userDetails
-          // TODO - Cognito verification and write to dynamoDB in progress
         },
         null,
         2

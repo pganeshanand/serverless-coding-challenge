@@ -76,7 +76,6 @@ Default output format [None]:
 
 ###### Note
 
-- <Region name> - 'ap-southeast-2' can be used since it is the closer.
 - This Access key ID should have either admin access or atleast permisson for all our resources used (AWS Cognito, AWS Lambda, AWS S3, AWS DynamoDB, AWS API Gateway)
 
 #### Process to Deploy
@@ -118,3 +117,17 @@ Response are shown in the browser based on the results of user checks.
 > will display the appropriate message and will not make any entry in dynamoDB.
 
 Any other failure are logged with the standard error message.
+
+#### Remove created AWS Infrastructure:
+
+AWS infrastructure can be completely removed by using the below command in command prompt
+
+```sh
+serverless remove
+```
+
+(or)
+
+```sh
+sls remove
+```
