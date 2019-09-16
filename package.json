@@ -1,0 +1,21 @@
+{
+  "name": "serverless-coding-challenge",
+  "version": "1.0.0",
+  "description": "REST API that will check if a user is in Amazon Cognito and write information to Amazon DynamoDB about that user.",
+  "main": "none",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pganeshanand/serverless-coding-challenge.git"
+  },
+  "author": "Ganesh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pganeshanand/serverless-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/pganeshanand/serverless-coding-challenge#readme"
+}
